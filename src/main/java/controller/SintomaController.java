@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +14,6 @@ import com.google.gson.Gson;
 
 import model.Retorno;
 import model.Sintoma;
-
 import services.SintomaService;
 import services.SintomaServiceImpl;
 
@@ -108,6 +108,16 @@ public class SintomaController extends HttpServlet {
                 } else {
                     retorno.setStatus(0l);
                     retorno.setRetorno("Sintoma não encontrado");
+                }
+                break;
+            case "buscarTodos":
+                ArrayList<Sintoma> sintomaRetornados = sintomaService.buscarSintomas();
+                if (sintomaRetornados != null) {
+                    retorno.setStatus(1l);
+                    retorno.setRetorno(sintomaRetornados);
+                } else {
+                    retorno.setStatus(0l);
+                    retorno.setRetorno("Sintomas não encontrados");
                 }
                 break;
             default:

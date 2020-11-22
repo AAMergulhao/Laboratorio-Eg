@@ -1,9 +1,13 @@
-adcpackage services;
+package services;
+
+import java.util.ArrayList;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import model.Sintoma;
 
@@ -60,6 +64,18 @@ public class SintomaServiceImpl implements SintomaService {
             return null;
         }
 
+    }
+
+    @Override
+    public ArrayList<Sintoma> buscarSintomas() {
+        Query query = em.createQuery("SELECT s FROM Sintoma s");
+
+        ArrayList<Sintoma> sintomasRetornados = (ArrayList<Sintoma>)query.getResultList();
+
+        if(!sintomasRetornados.isEmpty()){
+            return sintomasRetornados;
+        }
+        return null;
     }
 
 }

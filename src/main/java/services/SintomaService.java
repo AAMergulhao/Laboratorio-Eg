@@ -1,5 +1,7 @@
 package services;
 
+import java.util.ArrayList;
+
 import model.Sintoma;
 
 public interface SintomaService {
@@ -11,4 +13,6 @@ public interface SintomaService {
     public Sintoma alterarSintoma(Sintoma sintoma);
 
     public Sintoma buscarSintomaPorId(Sintoma sintoma);
+
+    public ArrayList<Sintoma> buscarSintomas();
 }
