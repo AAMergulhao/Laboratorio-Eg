@@ -1,0 +1,22 @@
+div.scrolable {
+    height: 500px;
+}
+
+tbody.scrolable {
+    display: block;
+    height: 320px;
+}
+
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+thead {
+    width: calc( 100% - 1em)
+}
+
+table {
+    width: 100%;
+}

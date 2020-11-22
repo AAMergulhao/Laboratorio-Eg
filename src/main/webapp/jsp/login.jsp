@@ -19,11 +19,11 @@
     <div class="container pop" style="margin-top: 10%;">
         <div class="row">
             <div class="col s12 m6 l6 offset-m3 offset-l3">
-                <div class="card">
-                    <div class="card-panel">
+                <div class="card blue-grey darken-2">
+                    <div class="card-panel blue-grey darken-2">
                         <div class="row">
                             <form class="col s12" method="post">
-                                <div class="row">
+                                <div class="row white-text">
                                     <input hidden id="action" type="text" value="logar" name="action">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">email</i>

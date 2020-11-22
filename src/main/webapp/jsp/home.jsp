@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost:8080/lb_eg/css/materialize.min.css" />
     <link rel="stylesheet" href="http://localhost:8080/lb_eg/css/styles.css" />
+    <link rel="stylesheet" href="http://localhost:8080/lb_eg/css/home.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Quadro de doenças</title>
 </head>
@@ -19,11 +20,11 @@
                     <span class="card-title white-text center-align"><i class="material-icons">list</i> Quadro de
                         Doenças</span>
                     <div class="divider"></div>
-                    <div class="row blue-grey darken-1" style="margin-top: 5px;">
+                    <div class="row blue-grey darken-1 white-text" style="margin-top: 5px;">
                         <div class="input-field col s10">
-                            <i class="material-icons prefix white-text">search</i>
-                            <input id="email" type="email" class="validate white-text" name="email">
-                            <label for="email" class="white-text">Pesquisar doença por nome</label>
+                            <i class="material-icons prefix">search</i>
+                            <input id="email" type="email" class="validate" name="email">
+                            <label for="email">Pesquisar doença por nome</label>
                         </div>
                         <div class="input-field col s2">
                             <a class="waves-effect waves-light btn blue darken-2">Buscar</a>
@@ -31,7 +32,6 @@
                     </div>
                     <div class="row">
                         <div class="scrolable">
-
                             <% for(int i = 0; i < 6; i+=1) { %>
                             <div class="col s12 m6 l6 pop" style="cursor: pointer">
                                 <div class="card-panel grey lighten-5 z-depth-1 hoverable">

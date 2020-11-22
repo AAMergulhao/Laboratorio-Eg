@@ -20,9 +20,9 @@ public class RoutesController extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String path = req.getServletPath();
 		ServletContext sc = req.getServletContext();
+		System.out.println(path);
 		switch (path) {
 			case "/":
-				System.out.println(path);
 				try {
 					sc.getRequestDispatcher("/jsp/login.jsp").forward(req, res);
 				} catch (ServletException e) {
@@ -33,7 +33,6 @@ public class RoutesController extends HttpServlet {
 				break;
 
 			case "/home":
-				System.out.println(path);
 				try {
 					sc.getRequestDispatcher("/jsp/home.jsp").forward(req, res);
 				} catch (ServletException e) {
@@ -42,7 +41,14 @@ public class RoutesController extends HttpServlet {
 					e.printStackTrace();
 				}
 				break;
-
+			case "/cadastro_doenca":
+				try {
+					sc.getRequestDispatcher("/jsp/cadastro_doenca.jsp").forward(req, res);
+				} catch (ServletException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			default:
 				break;
 		}

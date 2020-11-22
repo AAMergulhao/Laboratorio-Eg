@@ -18,7 +18,10 @@ body {
 
 input:focus {
     border-bottom: 1px solid #1976d2 !important;
-    
+}
+
+textarea.materialize-textarea:focus{
+    border-bottom: 1px solid #1976d2 !important;
 }
 
 .input-field .prefix.active {
@@ -29,6 +32,18 @@ label.active {
 }
 
 .scrolable {
-    height: 400px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    padding: 2px;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
