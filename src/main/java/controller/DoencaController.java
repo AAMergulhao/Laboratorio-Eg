@@ -12,17 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import model.Doenca;
 import model.Retorno;
-import model.Sintoma;
-import services.SintomaService;
-import services.SintomaServiceImpl;
+import services.DoencaService;
+import services.DoencaServiceImpl;
 
-@WebServlet(urlPatterns = "/sintoma")
-public class SintomaController extends HttpServlet {
-
+@WebServlet(urlPatterns = "/doenca")
+public class DoencaController extends HttpServlet {
+    
     private static final long serialVersionUID = 1L;
 
-    private SintomaService sintomaService = new SintomaServiceImpl();
+    private DoencaService doencaService = new DoencaServiceImpl();
 
     private Retorno retorno = new Retorno();
 
@@ -31,51 +31,51 @@ public class SintomaController extends HttpServlet {
         res.setContentType("application/json");
         PrintWriter out = res.getWriter();
 
-        Sintoma sintoma = new Sintoma();
-        Sintoma sintomaRetornado;
+        Doenca doenca = new Doenca();
+        Doenca doencaRetornada;
 
         if (req.getParameter("id") != null)
-            sintoma.setId(new Long(req.getParameter("id")));
+            doenca.setId(new Long(req.getParameter("id")));
         if (req.getParameter("nome") != null)
-            sintoma.setNome(req.getParameter("nome"));
+            doenca.setNome(req.getParameter("nome"));
         if (req.getParameter("descricao") != null)
-            sintoma.setDescricao(req.getParameter("descricao"));
+            doenca.setDescricao(req.getParameter("descricao"));
 
         String action = req.getParameter("action");
         switch (action) {
             case "criar":
-                sintomaRetornado = sintomaService.criarSintoma(sintoma);
-                if (sintomaRetornado != null) {
+                doencaRetornada = doencaService.criarDoenca(doenca);
+                if (doencaRetornada != null) {
                     retorno.setStatus(1l);
-                    retorno.setRetorno(sintomaRetornado);
+                    retorno.setRetorno(doencaRetornada);
                 } else {
                     retorno.setStatus(0l);
                     retorno.setRetorno("Erro ao criar usuario");
                 }
                 break;
             case "alterar":
-                sintomaRetornado = sintomaService.alterarSintoma(sintoma);
-                if (sintomaRetornado != null) {
+                doencaRetornada = doencaService.alterarDoenca(doenca);
+                if (doencaRetornada != null) {
                     retorno.setStatus(1l);
-                    retorno.setRetorno(sintomaRetornado);
+                    retorno.setRetorno(doencaRetornada);
                 } else {
                     retorno.setStatus(0l);
-                    retorno.setRetorno("Sintoma não encontrado");
+                    retorno.setRetorno("Doenca não encontrada");
                 }
                 break;
             case "deletar":
-                sintomaRetornado = sintomaService.deletarSintoma(sintoma);
-                if (sintomaRetornado != null) {
+                doencaRetornada = doencaService.deletarDoenca(doenca);
+                if (doencaRetornada != null) {
                     retorno.setStatus(1l);
-                    retorno.setRetorno(sintomaRetornado);
+                    retorno.setRetorno(doencaRetornada);
                 } else {
                     retorno.setStatus(0l);
-                    retorno.setRetorno("Erro ao deletar sintoma");
+                    retorno.setRetorno("Erro ao deletar doença");
                 }
                 break;
             default:
                 retorno.setStatus(0l);
-                retorno.setRetorno("Action não encontrado");
+                retorno.setRetorno("Action não encontrada");
                 break;
 
         }
@@ -86,43 +86,44 @@ public class SintomaController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         res.setContentType("application/json");
+        res.setCharacterEncoding("UTF-8");
         PrintWriter out = res.getWriter();
 
-        Sintoma sintoma = new Sintoma();
-        Sintoma sintomaRetornado;
+        Doenca doenca = new Doenca();
+        Doenca doencaRetornada;
 
         if (req.getParameter("id") != null)
-            sintoma.setId(new Long(req.getParameter("id")));
+            doenca.setId(new Long(req.getParameter("id")));
         if (req.getParameter("nome") != null)
-            sintoma.setNome(req.getParameter("nome"));
+            doenca.setNome(req.getParameter("nome"));
         if (req.getParameter("email") != null)
-            sintoma.setDescricao(req.getParameter("email"));
+            doenca.setDescricao(req.getParameter("email"));
 
         String action = req.getParameter("action");
         switch (action) {
             case "buscarPorId":
-                sintomaRetornado = sintomaService.buscarSintomaPorId(sintoma);
-                if (sintomaRetornado != null) {
+                doencaRetornada = doencaService.buscarDoencaPorId(doenca);
+                if (doencaRetornada != null) {
                     retorno.setStatus(1l);
-                    retorno.setRetorno(sintomaRetornado);
+                    retorno.setRetorno(doencaRetornada);
                 } else {
                     retorno.setStatus(0l);
-                    retorno.setRetorno("Sintoma não encontrado");
+                    retorno.setRetorno("Doencas não encontrada");
                 }
                 break;
             case "buscarTodos":
-                ArrayList<Sintoma> sintomaRetornados = sintomaService.buscarSintomas();
-                if (sintomaRetornados != null) {
+                ArrayList<Doenca> doencaRetornadas = doencaService.buscarDoencas();
+                if (doencaRetornadas != null) {
                     retorno.setStatus(1l);
-                    retorno.setRetorno(sintomaRetornados);
+                    retorno.setRetorno(doencaRetornadas);
                 } else {
                     retorno.setStatus(0l);
-                    retorno.setRetorno("Sintomas não encontrados");
+                    retorno.setRetorno("Doencas não encontradas");
                 }
                 break;
             default:
                 retorno.setStatus(0l);
-                retorno.setRetorno("Action não encontrado");
+                retorno.setRetorno("Action não encontrada");
                 break;
         }
 
