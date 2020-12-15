@@ -13,6 +13,6 @@ public interface DoencaService {
     public Doenca alterarDoenca(Doenca doenca);
 
     public Doenca buscarDoencaPorId(Doenca doenca);
-
+    
     public ArrayList<Doenca> buscarDoencas();
 }

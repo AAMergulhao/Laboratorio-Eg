@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import model.Doenca;
 import model.Retorno;
@@ -79,7 +80,8 @@ public class DoencaController extends HttpServlet {
                 break;
 
         }
-        out.print(new Gson().toJson(retorno));
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        out.print( gson.toJson(retorno));
 
     }
 
@@ -90,7 +92,9 @@ public class DoencaController extends HttpServlet {
         PrintWriter out = res.getWriter();
 
         Doenca doenca = new Doenca();
-        Doenca doencaRetornada;
+        Doenca doencaRetornada = null;
+        ArrayList<Doenca> doencaRetornadas = new ArrayList();
+        
 
         if (req.getParameter("id") != null)
             doenca.setId(new Long(req.getParameter("id")));
@@ -112,11 +116,8 @@ public class DoencaController extends HttpServlet {
                 }
                 break;
             case "buscarTodos":
-                ArrayList<Doenca> doencaRetornadas = doencaService.buscarDoencas();
-                if (doencaRetornadas != null) {
-                    retorno.setStatus(1l);
-                    retorno.setRetorno(doencaRetornadas);
-                } else {
+                doencaRetornadas = doencaService.buscarDoencas();
+                if (doencaRetornadas == null) {
                     retorno.setStatus(0l);
                     retorno.setRetorno("Doencas não encontradas");
                 }
@@ -127,6 +128,16 @@ public class DoencaController extends HttpServlet {
                 break;
         }
 
-        out.print(new Gson().toJson(retorno));
+        if (doencaRetornada != null) {
+            retorno.setStatus(1l);
+            retorno.setRetorno(doencaRetornada);
+        }
+
+        if (!doencaRetornadas.isEmpty()) {
+            retorno.setStatus(1l);
+            retorno.setRetorno(doencaRetornadas);
+        }
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        out.print( gson.toJson(retorno));
     }
 }

@@ -14,6 +14,7 @@ public class DoencaServiceImpl implements DoencaService {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
     EntityManager em = emf.createEntityManager();
 
+    
     @Override
     public Doenca criarDoenca(Doenca doenca) {
 

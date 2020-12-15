@@ -12,6 +12,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     <class>model.Usuario</class>
     <class>model.Sintoma</class>
     <class>model.Doenca</class>
+    <class>model.Ocorrencia</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/lb_eg" />

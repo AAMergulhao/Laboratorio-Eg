@@ -12,22 +12,29 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import com.google.gson.annotations.Expose;
 
 @Entity(name="Doenca")
 public class Doenca implements Serializable {
     
     private static final long serialVersionUID = 1L;
 
+    @Expose(serialize = true)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Expose(serialize = true)
     @Column(name = "nome")
     private String nome;
 
+    @Expose(serialize = true)
     @Column(name = "descricao")
     private String descricao;
 
+    @Expose(serialize = true)
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "doenca_sintomas", 
@@ -35,6 +42,10 @@ public class Doenca implements Serializable {
         inverseJoinColumns = { @JoinColumn(name = "sintoma_id") }
     )
     private Set<Sintoma> sintomas;
+
+    @Expose(serialize = true)
+    @OneToMany(mappedBy = "doenca", fetch = FetchType.EAGER)
+    private Set<Ocorrencia> ocorrencias;
 
     public long getId() {
         return id;
@@ -66,6 +77,14 @@ public class Doenca implements Serializable {
 
     public void setSintomas(Set<Sintoma> sintomas) {
         this.sintomas = sintomas;
+    }
+
+    public Set<Ocorrencia> getOcorrencias() {
+        return ocorrencias;
+    }
+
+    public void setOcorrencias(Set<Ocorrencia> ocorrencias) {
+        this.ocorrencias = ocorrencias;
     }
 
 }

@@ -15,11 +15,11 @@ form.addEventListener('submit', async event => {
         redirect: 'follow'
     };
 
-    await fetch("http://localhost:8080/lb_eg/usuario", requestOptions)
+    await fetch("http://localhost:8080/Laboratorio-Eg/usuario", requestOptions)
         .then()
         .then(usuario => {
             sessionStorage.setItem('usuario', JSON.stringify(usuario));
-            window.location.replace('http://localhost:8080/lb_eg/home');
+            window.location.replace('http://localhost:8080/Laboratorio-Eg/home');
         })
         .catch(error => console.log('error', error));
 })

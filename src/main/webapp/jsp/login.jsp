@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost:8080/lb_eg/css/materialize.min.css" />
-    <link rel="stylesheet" href="http://localhost:8080/lb_eg/css/styles.css" />
-    <link rel="stylesheet" href="http://localhost:8080/lb_eg/css/login.css" />
+    <link rel="stylesheet" href="http://localhost:8080/Laboratorio-Eg/css/materialize.min.css" />
+    <link rel="stylesheet" href="http://localhost:8080/Laboratorio-Eg/css/styles.css" />
+    <link rel="stylesheet" href="http://localhost:8080/Laboratorio-Eg/css/login.css" />
 </head>
 <style>
 
@@ -48,9 +48,9 @@
     </div>
 
 
-    <script src="http://localhost:8080/lb_eg/js/materialize.min.js"></script>
-    <script src="http://localhost:8080/lb_eg/js/scripts.js"></script>
-    <script src="http://localhost:8080/lb_eg/js/login.js"></script>
+    <script src="http://localhost:8080/Laboratorio-Eg/js/materialize.min.js"></script>
+    <script src="http://localhost:8080/Laboratorio-Eg/js/scripts.js"></script>
+    <script src="http://localhost:8080/Laboratorio-Eg/js/login.js"></script>
 </body>
 
 </html>

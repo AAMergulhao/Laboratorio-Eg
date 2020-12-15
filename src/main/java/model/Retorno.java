@@ -1,9 +1,13 @@
 package model;
 
+import com.google.gson.annotations.Expose;
+
 public class Retorno {
     
+    @Expose
     private Long status;
 
+    @Expose
     private Object retorno;
 
     public Long getStatus() {

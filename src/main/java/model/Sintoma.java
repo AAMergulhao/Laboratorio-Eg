@@ -10,18 +10,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.google.gson.annotations.Expose;
+
 @Entity(name="Sintoma")
 public class Sintoma implements Serializable {
     
     private static final long serialVersionUID = 1L;
 
+    @Expose
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Expose
     @Column(name = "nome")
     private String nome;
 
+    @Expose
     @Column(name = "descricao")
     private String descricao;
 

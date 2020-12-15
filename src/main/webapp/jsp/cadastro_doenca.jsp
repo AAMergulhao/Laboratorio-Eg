@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost:8080/lb_eg/css/materialize.min.css" />
-    <link rel="stylesheet" href="http://localhost:8080/lb_eg/css/styles.css" />
-    <link rel="stylesheet" href="http://localhost:8080/lb_eg/css/cadastrar_doenca.css" />
+    <link rel="stylesheet" href="http://localhost:8080/Laboratorio-Eg/css/materialize.min.css" />
+    <link rel="stylesheet" href="http://localhost:8080/Laboratorio-Eg/css/styles.css" />
+    <link rel="stylesheet" href="http://localhost:8080/Laboratorio-Eg/css/cadastrar_doenca.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Quadro de doenças</title>
 </head>
@@ -132,10 +132,10 @@
 
 
 
-        <script src="http://localhost:8080/lb_eg/js/jquery-3.5.1.min.js"></script>
-        <script src="http://localhost:8080/lb_eg/js/materialize.min.js"></script>
-        <script src="http://localhost:8080/lb_eg/js/scripts.js"></script>
-        <script src="http://localhost:8080/lb_eg/js/cadastrar_doenca.js"></script>
+        <script src="http://localhost:8080/Laboratorio-Eg/js/jquery-3.5.1.min.js"></script>
+        <script src="http://localhost:8080/Laboratorio-Eg/js/materialize.min.js"></script>
+        <script src="http://localhost:8080/Laboratorio-Eg/js/scripts.js"></script>
+        <script src="http://localhost:8080/Laboratorio-Eg/js/cadastrar_doenca.js"></script>
 </body>
 
 </html>
